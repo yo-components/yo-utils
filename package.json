@@ -1,0 +1,27 @@
+{
+  "name": "yo-utils",
+  "version": "0.0.1",
+  "description": "A yeoman utility library for added sugar.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kingcody/yo-utils.git"
+  },
+  "keywords": [
+    "yeoman",
+    "utility",
+    "utilities"
+  ],
+  "author": "Cody Mize",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingcody/yo-utils/issues"
+  },
+  "homepage": "https://github.com/kingcody/yo-utils",
+  "dependencies": {
+    "yeoman-generator": "^0.17.7"
+  }
+}

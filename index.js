@@ -2,6 +2,7 @@
 
 module.exports = {
   app: require('./lib/app'),
-  base: require('./lib/base'),
+  Base: require('./lib/base').Base,
+  NamedBase: require('./lib/base').NamedBase,
   templating: require('./lib/templating')
 };

@@ -1,7 +1,7 @@
 {
   "name": "yo-utils",
   "version": "0.0.3",
-  "description": "A yeoman utility library for added sugar.",
+  "description": "An opinionated set of utilities for yeoman generators.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,6 +1,6 @@
 {
   "name": "yo-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A yeoman utility library for added sugar.",
   "main": "index.js",
   "scripts": {

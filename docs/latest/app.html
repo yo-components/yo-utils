@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: templating</title>
+    <title>JSDoc: Module: yo-utils/lib/app</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: templating</h1>
+    <h1 class="page-title">Module: yo-utils/lib/app</h1>
 
     
 
@@ -27,7 +27,7 @@
 
 <header>
     <h2>
-    templating
+    yo-utils/lib/app
     </h2>
     
 </header>
@@ -37,6 +37,8 @@
     
 
     
+        
+            <div class="description"><p>App related utilities</p></div>
         
 
         
@@ -62,7 +64,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templating.js.html">lib/templating.js</a>, <a href="templating.js.html#line5">line 5</a>
+        <a href="app.js.html">lib/app.js</a>, <a href="app.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -96,7 +98,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="processDirectory"><span class="type-signature">&lt;static> </span>processDirectory<span class="signature">(self, source, destination)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="flattenConfig"><span class="type-signature">&lt;static> </span>flattenConfig<span class="signature">(config, delim)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 </dt>
@@ -104,7 +106,188 @@
 
     
     <div class="description">
-        <p>Process an entire directory filtering and templating accordingly</p>
+        <p>Flatten a config object (on an optional delimeter) and return the result</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>config</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the object to be flattened</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>delim</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the delimeter to join keys on, default: <code>-</code></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="app.js.html">lib/app.js</a>, <a href="app.js.html#line85">line 85</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>the flattened object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>var config = {
+  'a': {
+    'name': 'thing',
+    'color': 'blue'
+  },
+  'b': {
+    'name': 'stuff',
+    'color': 'red'
+  }
+};
+
+yoUtils.app.flattenConfig(config);
+// → { 'a-name': 'thing', 'a-color': 'blue', 'b-name': 'stuff', 'b-color': 'red'}</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="nameSuffix"><span class="type-signature">&lt;static> </span>nameSuffix<span class="signature">(self)</span><span class="type-signature"> &rarr; {String}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Return the properly cased app suffix according to options</p>
     </div>
     
 
@@ -158,52 +341,6 @@
         </tr>
 
     
-
-        <tr>
-            
-                <td class="name"><code>source</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the path to the directory to be processed</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>destination</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>the path to where the processed direcory should be written to</p></td>
-        </tr>
-
-    
     </tbody>
 </table>
     
@@ -231,172 +368,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templating.js.html">lib/templating.js</a>, <a href="templating.js.html#line99">line 99</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="relativePathTo"><span class="type-signature">&lt;static> </span>relativePathTo<span class="signature">(from, to, strip)</span><span class="type-signature"> &rarr; {String}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Returns a relative path used to require the 'to' file in the 'from' file</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>from</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file path to the from file</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>to</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>file path to the to file</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>strip</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>whether to strip the index file name and/or the js ext</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templating.js.html">lib/templating.js</a>, <a href="templating.js.html#line26">line 26</a>
+        <a href="app.js.html">lib/app.js</a>, <a href="app.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -424,7 +396,7 @@
             
 <div class="param-desc">
     <ul>
-<li>relative path to be used in require statements</li>
+<li>the app's name</li>
 </ul>
 </div>
 
@@ -450,7 +422,7 @@
         
             
 <dt>
-    <h4 class="name" id="rewrite"><span class="type-signature">&lt;static> </span>rewrite<span class="signature">(args)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id="pluckOps"><span class="type-signature">&lt;static> </span>pluckOps<span class="signature">(prefix, ops)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 </dt>
@@ -458,7 +430,7 @@
 
     
     <div class="description">
-        <p>Rewrite a body of text</p>
+        <p>Return a set of ops plucked from an options object</p>
     </div>
     
 
@@ -492,7 +464,33 @@
 
         <tr>
             
-                <td class="name"><code>args</code></td>
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">RegExp</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the prefix to search on and strip</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ops</code></td>
             
 
             <td class="type">
@@ -508,7 +506,7 @@
 
             
 
-            <td class="description last"><p>rewrite arguments</p></td>
+            <td class="description last"><p>the options object to pluck from</p></td>
         </tr>
 
     
@@ -539,7 +537,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templating.js.html">lib/templating.js</a>, <a href="templating.js.html#line54">line 54</a>
+        <a href="app.js.html">lib/app.js</a>, <a href="app.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -566,9 +564,7 @@
     
             
 <div class="param-desc">
-    <ul>
-<li>the rewritten body of text</li>
-</ul>
+    <p>the plucked and stripped options</p>
 </div>
 
 
@@ -579,7 +575,7 @@
     </dt>
     <dd>
         
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
     </dd>
@@ -588,12 +584,25 @@
         
 
     
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>var ops = {
+  'a-type': 'a',
+  'b-type': 'b',
+  'a-value': true,
+  'b-value': false
+};
+
+yoUtils.app.pluckOps('a-', ops);
+// → { 'type': 'a', 'value': ture }</code></pre>
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="rewriteFile"><span class="type-signature">&lt;static> </span>rewriteFile<span class="signature">(args)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="promptWhen"><span class="type-signature">&lt;static> </span>promptWhen<span class="signature">(ops)</span><span class="type-signature"> &rarr; {function}</span></h4>
 
     
 </dt>
@@ -601,7 +610,7 @@
 
     
     <div class="description">
-        <p>Rewrite a single file in place</p>
+        <p>Return a variable when function that is bound to a generator's options</p>
     </div>
     
 
@@ -635,7 +644,7 @@
 
         <tr>
             
-                <td class="name"><code>args</code></td>
+                <td class="name"><code>ops</code></td>
             
 
             <td class="type">
@@ -651,7 +660,7 @@
 
             
 
-            <td class="description last"><p>rewrite arguments, file, and path</p></td>
+            <td class="description last"><p>the generator's options object</p></td>
         </tr>
 
     
@@ -682,7 +691,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templating.js.html">lib/templating.js</a>, <a href="templating.js.html#line38">line 38</a>
+        <a href="app.js.html">lib/app.js</a>, <a href="app.js.html#line111">line 111</a>
     </li></ul></dd>
     
 
@@ -705,6 +714,29 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>the variable when function
+                         when(option, [previousAnswer, ...])</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+
+        
 
     
 </dd>
@@ -731,7 +763,7 @@
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Sun Oct 19 2014 07:20:56 GMT-0400 (EDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Sun Oct 19 2014 10:25:40 GMT-0400 (EDT)
 </footer>
 
 <script> prettyPrint(); </script>

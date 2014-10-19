@@ -1,6 +1,15 @@
 'use strict';
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
+var del = require('del');
+
+var minimist = require('minimist');
+var options = minimist(process.argv.slice(2), {
+  string: 'docver',
+  default: {
+    docver: require('./package.json').version || '0.0.0'
+  }
+});
 
 var handleErr = function(err) {
   console.log(err.message);
@@ -48,8 +57,16 @@ gulp.task('coveralls', ['test'], function() {
   return gulp.src('coverage/lcov.info').pipe(plugins.coveralls());
 });
 
-gulp.task('clean-docs', function() {
-  return gulp.src('./docs/*').pipe(plugins.clean());
+/* docs folders */
+var currDocVerFolder = 'docs/' + options.docver;
+var latestDocFolder = 'docs/latest';
+
+gulp.task('clean-docs', function(cb) {
+  del([currDocVerFolder + '/**'], cb);
+});
+
+gulp.task('clean-docs:latest', function(cb) {
+  del([latestDocFolder + '/**'], cb);
 });
 
 gulp.task('docs', ['clean-docs'], function() {
@@ -59,7 +76,18 @@ gulp.task('docs', ['clean-docs'], function() {
     'README.md'
   ])
   .pipe(plugins.jsdoc.parser({ plugins: ['plugins/markdown'] }))
-  .pipe(plugins.jsdoc.generator('./docs'));
+  .pipe(plugins.jsdoc.generator(currDocVerFolder));
+});
+
+gulp.task('docs:latest', ['version-readme', 'clean-docs:latest', 'docs'], function() {
+  return gulp.src([currDocVerFolder + '/**'])
+    .pipe(gulp.dest(latestDocFolder));
+});
+
+gulp.task('version-readme', function() {
+  return gulp.src(['README.md'])
+    .pipe(plugins.replace(/(\/|@)\d+\.\d+\.\d+/g, '$1' + options.docver))
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('default', ['static', 'test']);

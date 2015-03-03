@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/yo-components/yo-utils",
   "dependencies": {
-    "chalk": "^0.5.1",
+    "chalk": "^1.0.0",
     "lodash": "^2.4.1",
     "pluralize": "^1.0.2",
     "yeoman-generator": "^0.17.7"
